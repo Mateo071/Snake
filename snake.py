@@ -15,11 +15,7 @@ class Snake:
 
   def create_snake(self):
     for position in STARTING_POSITIONS:
-      segment = Turtle("square")
-      segment.color("white")
-      segment.up()
-      segment.setposition(position)
-      self.segments.append(segment)
+      self.create_segment(position)
 
   def move(self):
     """Begins has snake permanently advance"""
@@ -28,6 +24,18 @@ class Snake:
       next_segment_y = self.segments[seg - 1].ycor()
       self.segments[seg].goto(next_segment_x, next_segment_y)
     self.head.forward(MOVE_DISTANCE)
+
+  def create_segment(self, position):
+    segment = Turtle("square")
+    segment.color("lime")
+    segment.up()
+    segment.setposition(position)
+    self.segments.append(segment)
+  
+  def grow(self):
+    tail_position = self.segments[-1].position()
+    position = tail_position
+    self.create_segment(position)
   
   def up(self):
     if self.head.heading() != SOUTH:
