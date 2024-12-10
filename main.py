@@ -18,8 +18,11 @@ screen.tracer(0)
 
 snake = Snake()
 
-def move_right():
-  pass
+screen.listen()
+screen.onkey(snake.up, "w")
+screen.onkey(snake.left, "a")
+screen.onkey(snake.down, "s")
+screen.onkey(snake.right, "d")
 
 # for n in range(snake_length):
 #   snake = Turtle("square")
@@ -32,12 +35,11 @@ def move_right():
 #   origin_x -= 20
   
 
-def up():
-  print("looking up")
-  snake_head = snake_squares[0]
-  snake_head.setheading(90)
+# def up():
+#   print("looking up")
+#   snake_head = snake_squares[0]
+#   snake_head.setheading(90)
 
-screen.onkey(up, "Up")
 while is_game_on:
 #   for square in snake_squares:
 
